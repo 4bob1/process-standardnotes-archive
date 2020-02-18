@@ -7,12 +7,14 @@ To do this, I wrote Matlab code to write the notes for each tag to separate file
 The code should execute with the free, open source, Octave program although I haven't tested it.
 https://www.gnu.org/software/octave/
 
-The app provides two decrypted formats.: One is a zip file with a text file for every note.  The other is a standard JSON archive with all the notes, tags and other elements of the database.
+StandardNotes provides two decrypted formats.: (1)a zip file with a text file for every note or (2) a standard JSON archive with all the notes, tags and other elements of the database.
 
-The code in this repository contains functions to read in the JSON archive and convert the data:
-1. Add the tags for each note item
-2. Output the notes, with tags, to separate text files for each note. This is implemented in the ExportNotes2tags.m script
+The code in this repository uses the JSON archive. The code contains functions to read in the JSON archive then process all the notes
+1. If a note has a tag, it is written to a separate text files for the tag. If the note has more than one tag, it is written to the text file for the first tag. If a note does not have a tag, it is written to the 'noTags.txt' file
+2. The tag (or tags) are text strings and are prepended to the text for the note
 
-The code uses functions from the JSONlab package that is available for download on the Matlab file exchange. This should be downloaded and the files placed on the Matlab path. 
+The code is implemented in the Matlab ExportNotes2tags.m script. Other Matlab functions called are included in the code library.
+
+The code uses functions from the JSONlab package that is available for download on the Matlab file exchange. This should be downloaded and the files placed on the Matlab path. It is NOT included with the code library here on Github
 
 [JSONlab package download](https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-a-toolbox-to-encode-decode-json-files "JSONlab download")
